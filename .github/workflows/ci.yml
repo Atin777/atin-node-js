@@ -42,3 +42,19 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:IMAGE_TAG
+          
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: atin-node-js-task-definition:1
+          container-name: atin-node-js-container
+          image: ${{ steps.build-image.outputs.image }}
+          
+      - name: Deploy Am+azon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy+++-+task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: atin-node-js-service
+          cluster: atin-node-js-cluster
+          wait-for-service-stability: true
