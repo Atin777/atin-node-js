@@ -49,7 +49,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: atin-node-js-task-definition:1
+          task-definition: ../atin-node-js-task-definition.json
           container-name: atin-node-js-container
           image: ${{ steps.build-image.outputs.image }}
           
