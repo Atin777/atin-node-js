@@ -9,7 +9,7 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/atin-node-js-task-definition",
+          "awslogs-group": "/ecs/atin-node-js-task-definition-2",
           "awslogs-region": "ap-south-1",
           "awslogs-stream-prefix": "ecs"
         }
@@ -54,7 +54,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "atin-node-js-container"
+      "name": "atin-node-js-container-2"
     }
   ],
   "placementConstraints": [],
@@ -64,8 +64,8 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:961120793372:task-definition/atin-node-js-task-definition:1",
-  "family": "atin-node-js-task-definition",
+  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:961120793372:task-definition/atin-node-js-task-definition-2:1",
+  "family": "atin-node-js-task-definition-2",
   "requiresAttributes": [
     {
       "targetId": null,
