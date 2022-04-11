@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Node.js on Docker",
   "author": "Atindra Nath Sarkar atinsarkat@gmail.com",
-  "main": "main.js",
+  "main": "test.js",
   "license": "MIT",
   "repository": {
 	  "type": "git",
 	  "url": "https://github.com/Atin777/atin-node-js.git"
   },
   "scripts": {
-	  "start": "node main.js"
+	  "start": "node test.js"
   },
   "dependencies": {
 	  "express": "^4.16.1"

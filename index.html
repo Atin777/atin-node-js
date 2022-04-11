@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Random Number Generator Script</title>
+	</head>
+	<body>
+		<div id="body">
+		<p align="center">Play this game!...It's fun!...</p>
+		<p align="center" id="number_1"></p> <!--Random number 1 generated-->
+		<p align="center">+</p>
+		<p align="center" id="number_2"></p> <!--Random number 2 generated-->
+		<p align="center">=</p>
+		<p align="center"><input id="result"></p> <!--User input field-->
+		<p align="center">
+			<button onclick="reset_submit()">Play Again!</button> <!--Button to reload the window-->
+			<button onclick="after_submit()">Check!</button> <!--Submit the user input to check the result-->
+		</p>
+		<p align="center" id="output"></p> <!--Display the output after checking the result-->
+	<script>
+
+	let x = Math.floor((Math.random() * 10) + 1); //Generate 1st random integer from 0 to 10
+	document.getElementById("number_1").innerHTML = x; //Display the 1st generated integer in id = number_1
+
+	let y = Math.floor((Math.random() * 10) + 1); //Generate 2nd random integer from 0 to 10 
+	document.getElementById("number_2").innerHTML = y; //Display the 2nd generated integer in id = number_2
+
+	function after_submit() { //Function to check the data input from user and sum of two random integers generated
+		
+		let z = document.getElementById("result").value; //Get the user input from id = result
+		let out; //Variable to display output messages in id = output
+		
+		if(z != '') { //User field id = result empty field validation
+			if(isNaN(z)) { //User field id = result if not a number validation
+				out = "<font color=\"red\"><b>Please enter number!</b></font>"; //Display if user inputs not a number
+			} else { //If User input is a number
+				if(z == (x+y)) //User input versus generated random integers check
+				{
+					out = "<font color=\"green\"><b>Wow!...You are correct!</b></font>"; //Display if condition satisfies
+				} else{
+					out = "<font color=\"orange\"><b>Oops...The result is incorrect!</b></font>"; //Display if condition does not satisfy
+				}
+			}
+		} else {
+			out = "<font color=\"red\"><b>Please enter the field!</b></font>"; //Display if user field id = result is empty
+		}
+		
+		document.getElementById("output").innerHTML = out; //Display output messages in id = output
+		
+	} //Function after_submit() ends	
+
+	function reset_submit() { //Function to reload the window
+		window.location.reload(); //This window reloads
+		document.getElementById("result").value = '';
+	} //Function reset_window() ends
+</script>
+</body>
+</html>
